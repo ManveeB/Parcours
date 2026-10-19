@@ -4,21 +4,13 @@ This build keeps the existing static app and cat favicon on GitHub Pages. Supaba
 
 ## Important status
 
-The account UI and sync code are included, but **accounts will not work until you create/configure your own Supabase project**. This package does not contain any project credentials and cannot create a hosted Supabase project on your behalf. The 1.3 update also improves mobile controls, save-error visibility, fresh sentence-drill attempts, review-queue refresh, and text contrast. Do not use a service-role or secret key in `supabase-config.js`.
+The account UI and sync code are included, but **accounts will not work until you create/configure your own Supabase project**. The provided project URL and publishable key are already filled into `supabase-config.js`. This package cannot create a hosted Supabase project or run its SQL setup on your behalf. The 1.3 update also improves mobile controls, save-error visibility, fresh sentence-drill attempts, review-queue refresh, and text contrast. Do not use a service-role or secret key in `supabase-config.js`.
 
 ## 1. Create the Supabase project
 
-1. Create a project at https://supabase.com/dashboard.
+1. Open your existing project at https://supabase.com/dashboard.
 2. In **SQL Editor**, open `supabase-schema.sql` from this package and run the entire script.
-3. In **Project Settings → API** (or the API keys page), copy the **Project URL** and the **publishable key**. A legacy `anon` public key also works. Never copy the `service_role` key or any secret key.
-4. Edit `supabase-config.js`:
-
-   ```js
-   window.PARCOURS_SUPABASE = {
-     url: "https://YOUR-PROJECT-REF.supabase.co",
-     anonKey: "YOUR_PUBLISHABLE_OR_ANON_KEY"
-   };
-   ```
+3. The Project URL and publishable key are already set in `supabase-config.js`. Do not replace them with a `service_role` key or any secret key. If these credentials change, update the file using the new Project URL and publishable key.
 
    The file is served publicly by GitHub Pages. That is expected for a publishable key; **RLS is the security boundary**. The SQL script enables RLS, revokes anonymous access, and grants authenticated users access only to rows whose `user_id` equals `auth.uid()`.
 

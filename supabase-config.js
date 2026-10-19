@@ -3,6 +3,6 @@
  * publishable/anon key here. NEVER use a service_role key or secret key.
  */
 window.PARCOURS_SUPABASE = {
-  url: "",      // e.g. https://abcdefghijkl.supabase.co
-  anonKey: ""   // Supabase publishable key (sb_publishable_...) or legacy anon key
+  url: "https://tutakeuwintngxsfepue.supabase.co",
+  anonKey: "sb_publishable_M5NgE7XiQmQheJ4IC5d43Q_y5DklD4N"
 };
